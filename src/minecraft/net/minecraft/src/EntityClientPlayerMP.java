@@ -157,43 +157,44 @@ public class EntityClientPlayerMP extends EntityPlayerSP
 
     public void sendChatMessage(String s)
     {
-    if(s.startsWith(".spam"))
-        {
-            try
-            {
-                boolean flag = false;
-                String as1[] = s.split("=");
-                String s1 = as1[1];
-                int j = Integer.parseInt(as1[2]);
-                for(int k = 0; k < j; k++)
-                {
-                    sendQueue.addToSendQueue(new Packet3Chat(s1));
-                }
-
-            }
-            catch(Exception exception)
-            {
-                mc.thePlayer.addChatMessage("Invalid Syntax: .spam=<Message>=[Integer]");
-            }
-        } else
-        if(s.startsWith(".help"))
-        {
-            mc.thePlayer.addChatMessage("\247cWelcome to LavaBukkit's Help page");
-            mc.thePlayer.addChatMessage("\247a.credits");
-            mc.thePlayer.addChatMessage("\247cAdd commands here!");
-            mc.thePlayer.addChatMessage("\247c Spam added - Ryanoates!");
-            mc.thePlayer.addChatMessage("\247cAdded by RYANOATES")
-        }else
-        if(s.startsWith(".credits"))
-        {
-            mc.thePlayer.addChatMessage("List your name below");
-            mc.thePlayer.addChatMessage("Ryanoates - Help page");
-        }else
-        if(s.startsWith("."))
-        {
-            return;
-        }
-        sendQueue.addToSendQueue(new Packet3Chat(s));
+    	//Here is the Chat Commands
+    	String chat[] = s.trim().split(" ");
+    	if(chat[0].startsWith("#"))
+    	{
+    		if(chat[0].equals("#spam"))
+        	{
+            	try
+            	{
+                	boolean flag = false;
+                	String as1[] = s.split("=");
+                	String s1 = as1[1];
+                	int j = Integer.parseInt(as1[2]);
+                	for(int k = 0; k < j; k++)
+                	{
+                    	sendQueue.addToSendQueue(new Packet3Chat(s1));
+                	}
+            	}
+            	catch(Exception exception)
+            	{
+            		mc.thePlayer.addChatMessage("Invalid Syntax: .spam=<Message>=[Integer]");
+            	}
+        	} else
+        	if(chat[0].equals("#help"))
+        	{
+            	mc.thePlayer.addChatMessage("\247cWelcome to LavaBukkit's Help page");
+            	mc.thePlayer.addChatMessage("\247a.credits");
+            	mc.thePlayer.addChatMessage("\247cAdd commands here!");
+            	mc.thePlayer.addChatMessage("\247c Spam added - Ryanoates!");
+           		mc.thePlayer.addChatMessage("\247cAdded by RYANOATES");
+        	}else
+        	if(chat[0].equals("#credits"))
+        	{
+        		mc.thePlayer.addChatMessage("List your name below");
+        		mc.thePlayer.addChatMessage("Ryanoates");
+        	}
+    	} else {
+    		sendQueue.addToSendQueue(new Packet3Chat(s));
+    	}
     }
 
     public void swingItem()

@@ -24,7 +24,7 @@ public class LavaBukkit {
 		if(jumpHack) activatedHacks.add("Jump Heck");
 		
 		if(checkKey(Keyboard.KEY_P)) hideChat= !hideChat;
-		if(hideChat) activatedHacks.add("Hide Chat")
+		if(hideChat) activatedHacks.add("Hide Chat");
 		
 	}
 	
