@@ -178,16 +178,14 @@ public class EntityClientPlayerMP extends EntityPlayerSP
     				}
     				catch(Exception exception)
     				{
-            		mc.thePlayer.addChatMessage("Invalid Syntax: .spam=<Message>=[Integer]");
+            		mc.thePlayer.addChatMessage("Invalid Syntax: #spam=<Message>=[Integer]");
     				}
     			}
     			if(chat[0].equals("#help"))
     			{
     				mc.thePlayer.addChatMessage("\247cWelcome to LavaBukkit's Help page");
-    				mc.thePlayer.addChatMessage("\247a.credits");
-    				mc.thePlayer.addChatMessage("\247cAdd commands here!");
-            		mc.thePlayer.addChatMessage("\247c Spam added - Ryanoates!");
-            		mc.thePlayer.addChatMessage("\247cAdded by RYANOATES");
+    				mc.thePlayer.addChatMessage("#credits");
+    				mc.thePlayer.addChatMessage("#hChat - Hides Chat");
     			}
     			if(chat[0].equals("#credits"))
     			{
@@ -195,6 +193,7 @@ public class EntityClientPlayerMP extends EntityPlayerSP
     				mc.thePlayer.addChatMessage("Please contribute by helping out on GitHub");
     				mc.thePlayer.addChatMessage("http://www.github.com/XiCracked/LavaBukkit");
     			}
+    			if(chat[0].equals("#hChat")) LavaBukkit.hideChat = !LavaBukkit.hideChat;
     		} else {
     			sendQueue.addToSendQueue(new Packet3Chat(s));
     		}
