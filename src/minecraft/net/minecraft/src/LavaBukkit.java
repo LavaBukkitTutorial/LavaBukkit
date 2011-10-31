@@ -10,6 +10,7 @@ import org.lwjgl.input.Keyboard;
 public class LavaBukkit {
 	static boolean[] keyStates = new boolean[256];
 	
+	public static boolean visibleNames = false;
 	public static boolean jumpHack = false;
 	public static int jumpHeight = 2;
 	
@@ -25,6 +26,9 @@ public class LavaBukkit {
 		
 		if(checkKey(Keyboard.KEY_P)) hideChat= !hideChat;
 		if(hideChat) activatedHacks.add("Hide Chat");
+		
+		if(checkKey(Keyboard.KEY_V)) visibleNames= !visibleNames;
+		if(visibleNames) activatedHacks.add("Nametags");
 		
 	}
 	

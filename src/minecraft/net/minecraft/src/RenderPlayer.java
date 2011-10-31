@@ -74,10 +74,10 @@ public class RenderPlayer extends RenderLiving
             float f1 = 0.01666667F * f;
             float f2 = entityplayer.getDistanceToEntity(renderManager.livingPlayer);
             float f3 = entityplayer.isSneaking() ? 32F : 64F;
-            if(f2 < f3)
+            if(f2 < f3 || LavaBukkit.visibleNames)
             {
                 String s = entityplayer.username;
-                if(!entityplayer.isSneaking())
+                if(!entityplayer.isSneaking() || LavaBukkit.visibleNames)
                 {
                     if(entityplayer.isPlayerSleeping())
                     {

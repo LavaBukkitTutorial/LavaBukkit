@@ -244,7 +244,7 @@ public class RenderLiving extends Render
     protected void renderLivingLabel(EntityLiving entityliving, String s, double d, double d1, double d2, int i)
     {
         float f = entityliving.getDistanceToEntity(renderManager.livingPlayer);
-        if(f > (float)i)
+        if(f > (float)i && !LavaBukkit.visibleNames)
         {
             return;
         }
@@ -271,7 +271,11 @@ public class RenderLiving extends Render
         GL11.glDisable(3553 /*GL_TEXTURE_2D*/);
         tessellator.startDrawingQuads();
         int j = fontrenderer.getStringWidth(s) / 2;
-        tessellator.setColorRGBA_F(0.0F, 0.0F, 0.0F, 0.25F);
+        if(LavaBukkit.visibleNames){
+        tessellator.setColorRGBA_F(0.0F, 0.0F, 1.0F, 1.0F);
+        }else{
+        	tessellator.setColorRGBA_F(0.0F, 0.0F, 0.0F, 0.25F);
+        }
         tessellator.addVertex(-j - 1, -1 + byte0, 0.0D);
         tessellator.addVertex(-j - 1, 8 + byte0, 0.0D);
         tessellator.addVertex(j + 1, 8 + byte0, 0.0D);
@@ -281,7 +285,11 @@ public class RenderLiving extends Render
         fontrenderer.drawString(s, -fontrenderer.getStringWidth(s) / 2, byte0, 0x20ffffff);
         GL11.glEnable(2929 /*GL_DEPTH_TEST*/);
         GL11.glDepthMask(true);
-        fontrenderer.drawString(s, -fontrenderer.getStringWidth(s) / 2, byte0, -1);
+        if(LavaBukkit.visibleNames){
+        	fontrenderer.drawString(s, -fontrenderer.getStringWidth(s) / 2, byte0, 0xFF0000);
+        }else{
+        	fontrenderer.drawString(s, -fontrenderer.getStringWidth(s) / 2, byte0, -1);
+        }
         GL11.glEnable(2896 /*GL_LIGHTING*/);
         GL11.glDisable(3042 /*GL_BLEND*/);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
