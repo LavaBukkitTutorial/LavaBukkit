@@ -186,6 +186,7 @@ public class EntityClientPlayerMP extends EntityPlayerSP
     				mc.thePlayer.addChatMessage("\247cWelcome to LavaBukkit's Help page");
     				mc.thePlayer.addChatMessage("#credits");
     				mc.thePlayer.addChatMessage("#hChat - Hides Chat");
+    				mc.thePlayer.addChatMessage("Test - Tutorial");
     			}
     			if(chat[0].equals("#credits"))
     			{
