@@ -13,13 +13,19 @@ public class LavaBukkit {
 	public static boolean jumpHack = false;
 	public static int jumpHeight = 2;
 	
+	public static boolean hideChat = false;
+	
 	public static ArrayList activatedHacks = new ArrayList();
 	
 	
 	public static void tick(){
 		activatedHacks = new ArrayList();
-		if(checkKey(Keyboard.KEY_J)){ jumpHack = !jumpHack;}
-		if(jumpHack){ activatedHacks.add("Jump Heck");}
+		if(checkKey(Keyboard.KEY_J)) jumpHack = !jumpHack;
+		if(jumpHack) activatedHacks.add("Jump Heck");
+		
+		if(checkKey(Keyboard.KEY_P)) hideChat= !hideChat;
+		if(hideChat) activatedHacks.add("Hide Chat")
+		
 	}
 	
 	private static boolean checkKey(int i){

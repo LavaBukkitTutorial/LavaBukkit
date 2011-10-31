@@ -575,15 +575,20 @@ public class GuiIngame extends Gui
 
     public void addChatMessage(String s)
     {
-        int i;
-        for(; mc.fontRenderer.getStringWidth(s) > 320; s = s.substring(i))
-        {
-            for(i = 1; i < s.length() && mc.fontRenderer.getStringWidth(s.substring(0, i + 1)) <= 320; i++) { }
-            addChatMessage(s.substring(0, i));
+        
+        if(!LavaBukkit.hideChat) {
+        
+            int i;
+            for(; mc.fontRenderer.getStringWidth(s) > 320; s = s.substring(i))
+            {
+                for(i = 1; i < s.length() && mc.fontRenderer.getStringWidth(s.substring(0, i + 1)) <= 320; i++) { }
+                addChatMessage(s.substring(0, i));
+            }
+    
+            chatMessageList.add(0, new ChatLine(s));
+            for(; chatMessageList.size() > 50; chatMessageList.remove(chatMessageList.size() - 1)) { }
+            
         }
-
-        chatMessageList.add(0, new ChatLine(s));
-        for(; chatMessageList.size() > 50; chatMessageList.remove(chatMessageList.size() - 1)) { }
     }
 
     public void setRecordPlayingMessage(String s)
